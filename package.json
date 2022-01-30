@@ -1,0 +1,34 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "Real-Time Web Application with NodeJS and Socket.io (Chat App)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "env-cmd --file ./config/dev.env nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrhome/chat-app.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Socket.io"
+  ],
+  "author": "Andrii Khomenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrhome/chat-app/issues"
+  },
+  "homepage": "https://github.com/andrhome/chat-app#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "socket-io": "^1.0.0",
+    "socket.io": "^4.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "env-cmd": "^10.1.0"
+  }
+}
