@@ -1,19 +1,9 @@
-const express = require('express');
-const http = require('http');
-const path = require('path');
+const server = require('./server');
 const socketio = require('socket.io');
 const Filter = require('bad-words');
+
 const { generateMessage } = require('./utils/messages');
-
-const app = express();
-const server = http.createServer(app)
 const io = socketio(server);
-const port = process.env.PORT || 3000;
-
-const publicDirPath = path.join(__dirname, '../public');
-
-// Setup static directory to serve
-app.use(express.static(publicDirPath));
 
 const events = {
   connection: 'connection',
@@ -60,8 +50,4 @@ io.on(events.connection, (socket) => {
   socket.on(events.disconnect, () => {
     io.emit(events.message, generateMessage('A user has left!'));
   });
-});
-
-server.listen(port, () => {
-  console.log(`Server is up on port ${port}!`);
 });
